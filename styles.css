@@ -156,6 +156,8 @@ a { color:inherit; text-decoration:none; }
 section { 
     padding:54px 0; 
     border-top:1px solid rgba(255,255,255,0.02); 
+      scroll-margin-top: 80px; /* height of your sticky header + some buffer */
+
 }
 .section-title { 
     display:flex; 
@@ -224,42 +226,54 @@ section {
 footer { padding:40px 0; text-align:center; color:var(--muted); }
 
 /* Contact Section Form */
-.contact-card form {
+.contact-card {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 18px;
 }
 
-.contact-card label {
-  font-weight: 500;
-  margin-bottom: 4px;
+.contact-info {
+  list-style-type: disc;
+  margin-left: 16px;
+  line-height: 1.6;
+}
+
+.contact-info li a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.contact-info li a:hover {
+  text-decoration: none;
+}
+
+#contact-form label {
   display: block;
+  margin-bottom: 8px;
 }
 
-.contact-card textarea,
-.contact-card input[type="email"] {
+#contact-form textarea {
   width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.04);
+  color: inherit;
+}
+
+#contact-form .form-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+#contact-form .form-row input {
+  flex: 1;
   padding: 10px;
   border-radius: 8px;
   background: transparent;
   border: 1px solid rgba(255,255,255,0.04);
   color: inherit;
-  font-family: inherit;
-  resize: vertical;
-}
-
-.contact-form-row {
-  display: flex;
-  gap: 8px;
-  margin-top: 6px;
-}
-
-.contact-form-row input[type="email"] {
-  flex: 1;
-}
-
-.contact-form-row button.btn {
-  flex-shrink: 0;
 }
 
 /* loading overlay */
