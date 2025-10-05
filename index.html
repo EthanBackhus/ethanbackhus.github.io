@@ -1,198 +1,176 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ethan Backhus — Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <meta name="description" content="Portfolio — resume, projects" />
-</head>
-<body>
-  <div class="loading" id="loading">
-    <div class="spinner">
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="loading-text">Loading...</div>
-    </div>
-  </div>
-
-  <header class="top-navbar">
-    <div class="container navbar-container">
-      <div class="brand">
-        <div class="logo">EB</div>
-        <div class="name-role">
-          <div style="font-weight:700">Ethan Backhus</div>
-          <div style="font-size:12px;color:var(--muted)">Full-stack engineer - .NET, TypeScript, Solana</div>
-        </div>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>Ethan Backhus — Portfolio</title>
+      <link rel="stylesheet" href="styles.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+      <meta name="description" content="Portfolio — resume, projects" />
+   </head>
+   <body>
+      <div class="loading" id="loading">
+         <div class="spinner">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="loading-text">Loading...</div>
+         </div>
       </div>
-
-      <nav class="main-nav">
-        <ul>
-          <li><a href="#home" data-link>Home</a></li>
-          <li><a href="#projects" data-link>Projects</a></li>
-          <li><a href="#about" data-link>About</a></li>
-          <li><a href="#contact" data-link>Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="social-profile">
-        <a href="https://www.linkedin.com/in/ethanbackhus/" target="_blank"><img src="images/linkedin-logo.png" alt="Discord" /></a>
-        <a href="https://twitter.com/e_backhus" target="_blank"><img src="images/twitter-logo.png" alt="Twitter" /></a>
-        <a href="https://github.com/EthanBackhus" target="_blank"><img src="images/github-logo.png" alt="GitHub" /></a>
-        <a href="https://discord.com/users/ethantrades00" target="_blank"><img src="images/discord-logo.png" alt="Discord" /></a>
-      </div>
-    </div>
-  </header>
-
-  <main class="container" id="main">
-    <section id="home" class="hero">
-      <div class="hero-text">
-        <h1 class="fade-in">Hi — I'm Ethan. I build full-stack apps and blockchain tools.</h1>
-        <p class="lead fade-in">3+ years experience building production web apps and blockchain tools. I enjoy shipping clean interfaces, fast APIs, and thoughtful developer tooling. Continue reading to see projects, read about me, and more.</p>
-        <div class="cta fade-in">
-          <!--<a class="btn" href="#projects" data-link>View projects</a>-->
-          <a class="btn" href="downloads/resume.pdf">Download resume</a>
-        </div>
-      </div>
-      <aside class="card profile fade-in" style="background-image:url('images/headshot.jpg');" ></aside>
-    </section>
-
-    <section id="projects">
-  <div class="container">
-    <div class="section-title">
-      <h2>Projects</h2>
-    </div>
-
-    <div class="projects-grid" id="projects-grid">
-
-      <!-- Token Vesting Project Card -->
-      <div class="project">
-        <h3>Token Vesting Program</h3>
-        <p>A Solana-based token vesting program built with Anchor</p>
-        <ul>
-            <li>Enables automated, time-locked token releases for team members and investors</li>
-            <li>Supports customizable schedules, multiple beneficiaries, and secure withdrawals</li>
-            <li>Ensures transparent and trustless token distribution</li>
-        </ul>
-        <div class="tags">
-          <span>Rust</span>
-          <span>TypeScript</span>
-          <span>Anchor</span>
-          <span>Solana</span>
-        </div>
-        <a href="https://github.com/EthanBackhus/token-vesting" target="_blank" class="project-link"></a>
-      </div>
-
-      <!-- Sol CLI project card -->
-      <div class="project">
-        <h3>Solana CLI</h3>
-        <p>SPL token ALL-IN-ONE command line tool. Key features:</p>
-      <ul>
-        <li>Trade any token using Jupiter API & Raydium swap function</li>
-        <li>Create your own Solana SPL tokesn on mainnet</li>
-        <li>Performing LP transactions on Raydium, Orca, and Meteora</li>
-        <li>Allows transaction bundling</li>
-        <li>Pump.fun SDK integration</li>
-      </ul>
-      <div class="tags">
-        <span>Typescript</span>
-        <span>JavaScript</span>
-        <span>Solana</span>
-      </div>
-        <a href="https://github.com/EthanBackhus/SOL-CLI" target="_blank" class="project-link"></a>
-      </div>
-
-      <!-- Escrow Program -->
-      <div class="project">
-        <h3>Token Escrow Program</h3>
-        <p>A Solana-based token escrow program built with Anchor</p>
-        <ul>
-            <li>Allows secure, conditional transfers of SPL tokens between parties</li>
-            <li>Ensures funds are only released when agreed-upon conditions are met</li>
-            <li>Supports safe and trustless transactions</li>
-        </ul>
-        <div class="tags">
-          <span>Rust</span>
-          <span>TypeScript</span>
-          <span>Anchor</span>
-          <span>Solana</span>
-        </div>
-        <a href="https://github.com/EthanBackhus/solana-escrow-program" target="_blank" class="project-link"></a>
-      </div>
-
-
-    </div>
-  </div>
-</section>
-
-
-
-
-    <section id="about">
-      <div class="section-title">
-        <h2>About</h2>
-      </div>
-      <div class="card">
-        <p>
-            I’m a full-stack software engineer with 3+ years of experience building production web applications and blockchain tools. 
-            My work spans modern frontend frameworks, TypeScript, Rust, Solana programs using Anchor, and robust backend systems with C#, .NET Core, PostgreSQL, MySQL, and MongoDB. 
-            I enjoy designing clean, responsive interfaces, building fast and reliable APIs, and delivering thoughtful developer tooling that scales.
-        </p>
-        <p>
-            Currently at AeroVironment, I develop and maintain full-stack .NET applications, taking ownership of WPF front-ends and C# backend business logic. 
-            I integrate REST APIs and use Protobufs to transmit structured data between teams, manage build and deployment processes across multiple environments, and implement unit and integration tests to reduce production bugs. 
-            I also mentor interns, providing technical guidance, code reviews, and hands-on leadership to help them contribute meaningful features quickly.
-        </p>
-        <p>
-            Previously at Honeywell, I developed and maintained RESTful APIs and web applications within a microservices architecture, leveraging cloud technologies such as Azure Event Hubs and Azure Insights to capture telemetry data. 
-            I built scalable, reliable systems, designed and maintained both relational and NoSQL databases, and ensured software quality through extensive unit testing and Agile workflows. 
-            I also contributed to containerized deployment processes using Docker, enabling smooth scaling and efficient releases.
-        </p>
-        <p>
-            I thrive on solving complex technical challenges, optimizing performance, and delivering polished, reliable solutions that delight users. 
-            My experience spans enterprise-scale applications, blockchain development, and building tools that streamline workflows and improve productivity. 
-            I am a highly motivated, self-driven, and adaptable engineer who takes initiative, learns quickly, and enjoys tackling challenging problems. 
-            I consistently seek opportunities to improve systems, mentor others, and deliver impactful results.
-        </p>
-      </div>
-    </section>
-
-    <section id="contact">
-  <div class="section-title">
-    <h2>Contact</h2>
-  </div>
-  <div class="card">
-    <p>If you’d like to get in touch, feel free to reach out via any of the following:</p>
-    <ul class="contact-info">
-      <li><strong>Email:</strong> <a href="mailto:ethan@example.com">ethan@example.com</a></li>
-      <li><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></li>
-      <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ethanbackhus" target="_blank">linkedin.com/in/ethanbackhus</a></li>
-      <li><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></li>
-    </ul>
-    <p>Alternatively, you can also use the contact form below to send me a message directly.</p>
-
-    <form id="contact-form" action="https://formspree.io/f/yourformid" method="POST">
-      <label for="message">Message</label>
-      <textarea name="message" id="message" rows="4" placeholder="Your message"></textarea>
-      <div class="form-row">
-        <input name="email" type="email" placeholder="your@email.com" required />
-        <button type="submit" class="btn">Send</button>
-      </div>
-    </form>
-
-  </div>
-</section>
-
-
-
-    <footer>
-      <div>© 2025 Ethan Backhus — Built with ❤️</div>
-    </footer>
-  </main>
-
-  <script src="script.js"></script>
-</body>
+      <header class="top-navbar">
+         <div class="container navbar-container">
+            <div class="brand">
+               <div class="logo">EB</div>
+               <div class="name-role">
+                  <div style="font-weight:700">Ethan Backhus</div>
+                  <div style="font-size:12px;color:var(--muted)">Full-stack engineer - .NET, TypeScript, Solana</div>
+               </div>
+            </div>
+            <nav class="main-nav">
+               <ul>
+                  <li><a href="#home" data-link>Home</a></li>
+                  <li><a href="#projects" data-link>Projects</a></li>
+                  <li><a href="#about" data-link>About</a></li>
+                  <li><a href="#contact" data-link>Contact</a></li>
+               </ul>
+            </nav>
+            <div class="social-profile">
+               <a href="https://www.linkedin.com/in/ethanbackhus/" target="_blank"><img src="images/linkedin-logo.png" alt="Discord" /></a>
+               <a href="https://twitter.com/e_backhus" target="_blank"><img src="images/twitter-logo.png" alt="Twitter" /></a>
+               <a href="https://github.com/EthanBackhus" target="_blank"><img src="images/github-logo.png" alt="GitHub" /></a>
+               <a href="https://discord.com/users/ethantrades00" target="_blank"><img src="images/discord-logo.png" alt="Discord" /></a>
+            </div>
+         </div>
+      </header>
+      <main class="container" id="main">
+         <section id="home" class="hero">
+            <div class="hero-text">
+               <h1 class="fade-in">Hi — I'm Ethan. I build full-stack apps and blockchain tools.</h1>
+               <p class="lead fade-in">3+ years experience building production web apps and blockchain tools. I enjoy shipping clean interfaces, fast APIs, and thoughtful developer tooling. Continue reading to see projects, read about me, and more.</p>
+               <div class="cta fade-in">
+                  <!--<a class="btn" href="#projects" data-link>View projects</a>-->
+                  <a class="btn" href="downloads/resume.pdf">Download resume</a>
+               </div>
+            </div>
+            <aside class="card profile fade-in" style="background-image:url('images/headshot.jpg');" ></aside>
+         </section>
+         <section id="projects">
+            <div class="container">
+               <div class="section-title">
+                  <h2>Projects</h2>
+               </div>
+               <div class="projects-grid" id="projects-grid">
+                  <!-- Token Vesting Project Card -->
+                  <div class="project">
+                     <h3>Token Vesting Program</h3>
+                     <p>A Solana-based token vesting program built with Anchor</p>
+                     <ul>
+                        <li>Enables automated, time-locked token releases for team members and investors</li>
+                        <li>Supports customizable schedules, multiple beneficiaries, and secure withdrawals</li>
+                        <li>Ensures transparent and trustless token distribution</li>
+                     </ul>
+                     <div class="tags">
+                        <span>Rust</span>
+                        <span>TypeScript</span>
+                        <span>Anchor</span>
+                        <span>Solana</span>
+                     </div>
+                     <a href="https://github.com/EthanBackhus/token-vesting" target="_blank" class="project-link"></a>
+                  </div>
+                  <!-- Sol CLI project card -->
+                  <div class="project">
+                     <h3>Solana CLI</h3>
+                     <p>SPL token ALL-IN-ONE command line tool. Key features:</p>
+                     <ul>
+                        <li>Trade any token using Jupiter API & Raydium swap function</li>
+                        <li>Create your own Solana SPL tokesn on mainnet</li>
+                        <li>Performing LP transactions on Raydium, Orca, and Meteora</li>
+                        <li>Allows transaction bundling</li>
+                        <li>Pump.fun SDK integration</li>
+                     </ul>
+                     <div class="tags">
+                        <span>Typescript</span>
+                        <span>JavaScript</span>
+                        <span>Solana</span>
+                     </div>
+                     <a href="https://github.com/EthanBackhus/SOL-CLI" target="_blank" class="project-link"></a>
+                  </div>
+                  <!-- Escrow Program -->
+                  <div class="project">
+                     <h3>Token Escrow Program</h3>
+                     <p>A Solana-based token escrow program built with Anchor</p>
+                     <ul>
+                        <li>Allows secure, conditional transfers of SPL tokens between parties</li>
+                        <li>Ensures funds are only released when agreed-upon conditions are met</li>
+                        <li>Supports safe and trustless transactions</li>
+                     </ul>
+                     <div class="tags">
+                        <span>Rust</span>
+                        <span>TypeScript</span>
+                        <span>Anchor</span>
+                        <span>Solana</span>
+                     </div>
+                     <a href="https://github.com/EthanBackhus/solana-escrow-program" target="_blank" class="project-link"></a>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section id="about">
+            <div class="section-title">
+               <h2>About</h2>
+            </div>
+            <div class="card">
+               <p>
+                  I’m a full-stack software engineer with 3+ years of experience building production web applications and blockchain tools. 
+                  My work spans modern frontend frameworks, TypeScript, Rust, Solana programs using Anchor, and robust backend systems with C#, .NET Core, PostgreSQL, MySQL, and MongoDB. 
+                  I enjoy designing clean, responsive interfaces, building fast and reliable APIs, and delivering thoughtful developer tooling that scales.
+               </p>
+               <p>
+                  Currently at AeroVironment, I develop and maintain full-stack .NET applications, taking ownership of WPF front-ends and C# backend business logic. 
+                  I integrate REST APIs and use Protobufs to transmit structured data between teams, manage build and deployment processes across multiple environments, and implement unit and integration tests to reduce production bugs. 
+                  I also mentor interns, providing technical guidance, code reviews, and hands-on leadership to help them contribute meaningful features quickly.
+               </p>
+               <p>
+                  Previously at Honeywell, I developed and maintained RESTful APIs and web applications within a microservices architecture, leveraging cloud technologies such as Azure Event Hubs and Azure Insights to capture telemetry data. 
+                  I built scalable, reliable systems, designed and maintained both relational and NoSQL databases, and ensured software quality through extensive unit testing and Agile workflows. 
+                  I also contributed to containerized deployment processes using Docker, enabling smooth scaling and efficient releases.
+               </p>
+               <p>
+                  I thrive on solving complex technical challenges, optimizing performance, and delivering polished, reliable solutions that delight users. 
+                  My experience spans enterprise-scale applications, blockchain development, and building tools that streamline workflows and improve productivity. 
+                  I am a highly motivated, self-driven, and adaptable engineer who takes initiative, learns quickly, and enjoys tackling challenging problems. 
+                  I consistently seek opportunities to improve systems, mentor others, and deliver impactful results.
+               </p>
+            </div>
+         </section>
+         <section id="contact">
+            <div class="section-title">
+               <h2>Contact</h2>
+            </div>
+            <div class="card">
+               <p>If you’d like to get in touch, feel free to reach out via any of the following:</p>
+               <ul class="contact-info">
+                  <li><strong>Email:</strong> <a href="mailto:backhusethan@gmail.com">backhusethan@gmail.com</a></li>
+                  <li><strong>Phone:</strong> <a href="tel:+15743238205">+1 (574) 323-8205</a></li>
+                  <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ethanbackhus" target="_blank">linkedin.com/in/ethanbackhus</a></li>
+                  <li><strong>GitHub:</strong> <a href="https://github.com/EthanBackhus" target="_blank">github.com/EthanBackhus</a></li>
+               </ul>
+               <p>Alternatively, you can also use the contact form below to send me a message directly.</p>
+               <form id="contact-form" action="https://formspree.io/f/mpwyljgd" method="POST">
+                  <label for="message">Message</label>
+                  <textarea name="message" id="message" rows="4" placeholder="Write your message..."></textarea>
+                  <div class="form-row">
+                     <input name="email" type="email" placeholder="your@email.com" required />
+                     <button type="submit" class="btn">Send</button>
+                  </div>
+               </form>
+            </div>
+         </section>
+         <footer>
+            <div>© 2025 Ethan Backhus — Built with ❤️</div>
+         </footer>
+      </main>
+      <script src="script.js"></script>
+   </body>
 </html>
