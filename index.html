@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ethan Backhus — Portfolio (static clone)</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Portfolio — resume, projects, blog" />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1320;
+      --muted:#94a3b8;
+      --accent1:#7c5cff;
+      --accent2:#00d4ff;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, #071023 0%, #071423 50%, #02030a 100%);
+      color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:40px 20px}
+
+    /* nav */
+    header{position:sticky;top:0;backdrop-filter:blur(6px);z-index:50;padding:12px 0}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800}
+    nav ul{display:flex;gap:18px;margin:0;padding:0;list-style:none}
+    nav li{opacity:.95}
+    nav a{padding:6px 8px;border-radius:8px}
+    nav a:hover{background:rgba(255,255,255,0.03)}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:36px;align-items:start;padding:40px 0}
+    .hero h1{font-size:38px;margin:0 0 10px}
+    .hero p.lead{color:var(--muted);margin:0 0 18px}
+    .cta{display:flex;gap:12px;margin-top:16px}
+    .btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:0;padding:10px 14px;border-radius:10px;color:#081027;font-weight:600;cursor:pointer}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+
+    /* sidebar */
+    .profile{display:flex;flex-direction:column;gap:12px;align-items:center}
+    .avatar{width:140px;height:140px;border-radius:14px;background:linear-gradient(135deg,#1f2937,#0f1724);display:flex;align-items:center;justify-content:center;font-size:42px}
+    .meta{font-size:13px;color:var(--muted);text-align:center}
+
+    /* sections */
+    section{padding:54px 0;border-top:1px solid rgba(255,255,255,0.02)}
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+    .section-title h2{margin:0}
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project{padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);display:flex;flex-direction:column;gap:8px}
+    .project .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.03);color:var(--muted)}
+
+    /* blog list */
+    .posts{display:flex;flex-direction:column;gap:12px}
+    .post{display:flex;align-items:flex-start;gap:14px}
+    .post small{color:var(--muted)}
+
+    footer{padding:40px 0;text-align:center;color:var(--muted)}
+
+    /* loading overlay */
+    .loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.9));z-index:200;backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .28s ease}
+    .loading.show{opacity:1;pointer-events:auto}
+    .spinner{padding:18px 26px;border-radius:12px;background:rgba(255,255,255,0.03);display:flex;gap:12px;align-items:center}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--accent1);animation:bounce 1s infinite}
+    .dot:nth-child(2){animation-delay:.12s}
+    .dot:nth-child(3){animation-delay:.24s}
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .projects-grid{grid-template-columns:1fr}
+      .avatar{width:110px;height:110px}
+    }
+
+    /* subtle entrance */
+    .fade-in{opacity:0;transform:translateY(8px);animation:fadeIn .6s forwards}
+    @keyframes fadeIn{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="loading" id="loading">
+    <div class="spinner">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div style="color:var(--muted);font-size:14px">Loading...</div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">EB</div>
+        <div>
+          <div style="font-weight:700">Ethan Backhus</div>
+          <div style="font-size:12px;color:var(--muted)">Full-stack engineer — Solana, TypeScript, .NET</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home" data-link>Home</a></li>
+          <li><a href="#projects" data-link>Projects</a></li>
+          <li><a href="#blog" data-link>Blog</a></li>
+          <li><a href="#about" data-link>About</a></li>
+          <li><a href="#contact" data-link>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <section id="home" class="hero">
+      <div>
+        <h1 class="fade-in">Hi — I'm Ethan. I build full-stack apps and blockchain tools.</h1>
+        <p class="lead fade-in">3 years experience building production web apps. I enjoy shipping clean interfaces, fast APIs, and thoughtful developer tooling. Below are selected projects, blog posts, and more.</p>
+        <div class="cta fade-in">
+          <a class="btn" href="#projects" data-link>View projects</a>
+          <a class="btn" href="/resume.pdf" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent2)">Download resume</a>
+        </div>
+      </div>
+      <aside class="card profile fade-in">
+        <div class="avatar">EB</div>
+        <div class="meta">
+          Fort Lauderdale · Full-stack engineer
+        </div>
+        <div style="display:flex;gap:8px;margin-top:6px">
+          <a class="tag" href="https://github.com/" target="_blank">Github</a>
+          <a class="tag" href="https://twitter.com/" target="_blank">Twitter</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <h2>Selected projects</h2>
+      </div>
+      <div class="projects-grid" id="projects-grid">
+        <!-- projects rendered by JS -->
+      </div>
+    </section>
+
+    <section id="blog">
+      <div class="section-title">
+        <h2>Latest posts</h2>
+      </div>
+      <div class="posts" id="posts">
+        <!-- posts rendered by JS -->
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-title">
+        <h2>About</h2>
+      </div>
+      <div class="card">
+        <p>I’m a full-stack engineer with 3 years of experience building web applications and blockchain tools. I enjoy using TypeScript, Rust (Anchor), PostgreSQL, and modern frontend frameworks to ship polished user experiences. I’m currently focused on Solana development and developer tooling.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title"><h2>Contact</h2></div>
+      <div class="card" style="display:flex;gap:18px;flex-direction:column">
+        <form action="https://formspree.io/f/yourformid" method="POST">
+          <label style="display:block;margin-bottom:8px">Message</label>
+          <textarea name="message" rows="4" style="width:100%;padding:8px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit"></textarea>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <input name="email" placeholder="your@email.com" style="flex:1;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit" />
+            <button class="btn">Send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2025 Ethan Backhus — Built with ❤️ · Static GitHub Pages starter</div>
+    </footer>
+  </main>
+
+  <script>
+    // sample data (replace with your real content)
+    const projects = [
+      {title: 'Tip Jar (Solana)', desc: 'Anchor program + front-end for tipping with messages', tags:['Solana','Anchor','TypeScript'], url:'#'},
+      {title: 'Sports Manager', desc: 'Team & tournament management platform', tags:['React','Postgres','Stripe'], url:'#'},
+      {title: 'On-chain Todo', desc: 'Learning project using Solana + Anchor', tags:['Rust','Solana'], url:'#'},
+      {title: 'Personal Website', desc: 'This static portfolio template', tags:['HTML','CSS','JS'], url:'#'}
+    ];
+
+    const posts = [
+      {title:'Building an escrow program on Solana', date:'Oct 2025', excerpt:'A walkthrough of building an escrow program using Anchor and TypeScript', url:'#'},
+      {title:'Why I prefer static sites for portfolios', date:'Sep 2025', excerpt:'Static sites are fast, cheap, and easy to maintain — here’s why', url:'#'}
+    ];
+
+    function renderProjects(){
+      const grid = document.getElementById('projects-grid');
+      grid.innerHTML = '';
+      projects.forEach(p => {
+        const el = document.createElement('article');
+        el.className = 'project fade-in';
+        el.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:start">
+            <h3 style="margin:0;font-size:16px">${p.title}</h3>
+            <a href="${p.url}" style="font-size:13px;color:var(--muted)">View</a>
+          </div>
+          <p style="margin:6px 0 10px;color:var(--muted);font-size:14px">${p.desc}</p>
+          <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        `;
+        grid.appendChild(el);
+      });
+    }
+
+    function renderPosts(){
+      const box = document.getElementById('posts');
+      box.innerHTML = '';
+      posts.forEach(p=>{
+        const el = document.createElement('a');
+        el.className = 'post card';
+        el.href = p.url;
+        el.innerHTML = `<div style="flex:1"><strong>${p.title}</strong><br/><small>${p.date}</small><p style='margin:6px 0 0;color:var(--muted)'>${p.excerpt}</p></div>`;
+        box.appendChild(el);
+      });
+    }
+
+    // simple page-link handler + fake loading overlay to mimic SPA transitions
+    document.querySelectorAll('[data-link]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href && href.startsWith('#')){
+          e.preventDefault();
+          showLoading();
+          const id = href.slice(1);
+          setTimeout(()=>{
+            document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+            hideLoading();
+          }, 380);
+        }
+      });
+    });
+
+    function showLoading(){document.getElementById('loading').classList.add('show')}
+    function hideLoading(){document.getElementById('loading').classList.remove('show')}
+
+    // entrance
+    window.addEventListener('DOMContentLoaded', ()=>{
+      renderProjects();
+      renderPosts();
+      // small header reveal
+      document.querySelectorAll('.fade-in').forEach((el,i)=>{el.style.animationDelay = (i*70)+'ms'})
+    });
+  </script>
+</body>
+</html>
