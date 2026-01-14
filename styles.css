@@ -251,8 +251,13 @@ section {
 	z-index: 1;
 }
 
+/* Blog cards */
 .blog-card {
   position: relative;
+  padding: 12px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent);
+  gap: 8px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -268,6 +273,7 @@ section {
   inset: 0;
   z-index: 1;
   text-indent: -9999px;
+  border-radius: 12px;
 }
 
 /* Ensure text stays above background visually */
@@ -275,7 +281,38 @@ section {
 .blog-card p,
 .blog-meta {
   position: relative;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blog-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 8px 0;
+}
+
+/* to make links in text clickable */
+.blog-card a:not(.blog-link) {
+  position: relative;
   z-index: 2;
+  pointer-events: auto;
+}
+
+.blog-header {
+  padding: 180px 0 40px;
+  text-align: center;
+}
+
+.blog-title {
+  font-size: 42px;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.blog-subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
 }
 
 
