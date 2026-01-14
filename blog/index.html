@@ -11,6 +11,16 @@
 </head>
 
 <body>
+<!-- Loading overlay - MOVED TO TOP -->
+<div id="loading" class="loading">
+  <div class="spinner">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="loading-text">Loading...</div>
+  </div>
+</div>
+
 <header class="top-navbar">
   <div class="container navbar-container">
     <div class="brand">
@@ -32,6 +42,13 @@
         <li><a href="../index.html#contact">Contact</a></li>
       </ul>
     </nav>
+
+    <div class="social-profile">
+      <a href="https://www.linkedin.com/in/ethanbackhus/" target="_blank"><img src="../images/linkedin-logo.png" alt="Discord" /></a>
+      <a href="https://twitter.com/e_backhus" target="_blank"><img src="../images/twitter-logo.png" alt="Twitter" /></a>
+      <a href="https://github.com/EthanBackhus" target="_blank"><img src="../images/github-logo.png" alt="GitHub" /></a>
+      <a href="https://discord.com/users/ethantrades00" target="_blank"><img src="../images/discord-logo.png" alt="Discord" /></a>
+    </div>
   </div>
 </header>
 
@@ -40,17 +57,17 @@
   <!-- Blog Intro -->
   <section class="hero">
     <div class="hero-text">
-      <h1>Writing</h1>
-      <p class="lead">
+      <h1 class="fade-in">Blog</h1>
+      <p class="lead fade-in">
         It's important to constantly review what you've learned, and what better way
         to make it stick than to document it and teach others.
       </p>
 
-      <p class="lead">
+      <p class="lead fade-in">
         So the goal of this section is to document my journey, my thoughts, and what's going on my brain.
       </p>
 
-      <p class="lead">
+      <p class="lead fade-in">
         Welcome to my long-form essays on systems engineering, distributed systems,
         markets, and things I’m actively thinking about.
       </p>
@@ -61,8 +78,8 @@
   <section>
     <div class="blog-list">
 
-      <!-- Post -->
-      <article class="card blog-card">
+      <!-- HTTP/3, QUIC, Control Loops Post -->
+      <article class="card blog-card fade-in">
         <h3>
             HTTP/3, QUIC, and Control Loops
         </h3>
@@ -79,7 +96,7 @@
 
         <!-- Full-card link -->
         <a
-          href="posts/http3-control-loops/index.html"
+          href="posts/http3_quic/index.html"
           class="blog-link"
           aria-label="Read HTTP/3, QUIC, and Control Loops"
         ></a>
@@ -112,7 +129,18 @@
   <div>© 2025 Ethan Backhus — Built with ❤️</div>
 </footer>
 
+<!-- Loading overlay
+<div id="loading" class="loading">
+  <div class="spinner">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="loading-text">Loading...</div>
+  </div>
+</div> -->
+
 <script src="../script.js"></script>
+
 
 </body>
 </html>

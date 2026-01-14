@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HTTP/3, QUIC, and Control Loops</title>
+  <title>HTTP/3 and QUIC</title>
 
   <link rel="stylesheet" href="../../../styles.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,9 +11,8 @@
 </head>
 
 <body>
-
-<!-- Loader -->
-<div class="loading" id="loading">
+<!-- Loading overlay - MOVED TO TOP -->
+<div id="loading" class="loading">
   <div class="spinner">
     <div class="dot"></div>
     <div class="dot"></div>
@@ -37,22 +36,29 @@
 
     <nav class="main-nav">
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/#projects">Projects</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/#about">About</a></li>
-        <li><a href="/#contact">Contact</a></li>
+        <li><a href="../../../index.html">Home</a></li>
+        <li><a href="../../../index.html#projects">Projects</a></li>
+        <li><a href="../../index.html">Blog</a></li>
+        <li><a href="../../../index.html#about">About</a></li>
+        <li><a href="../../../index.html#contact">Contact</a></li>
       </ul>
     </nav>
+
+    <div class="social-profile">
+      <a href="https://www.linkedin.com/in/ethanbackhus/" target="_blank"><img src="../../../images/linkedin-logo.png" alt="Discord" /></a>
+      <a href="https://twitter.com/e_backhus" target="_blank"><img src="../../../images/twitter-logo.png" alt="Twitter" /></a>
+      <a href="https://github.com/EthanBackhus" target="_blank"><img src="../../../images/github-logo.png" alt="GitHub" /></a>
+      <a href="https://discord.com/users/ethantrades00" target="_blank"><img src="../../../images/discord-logo.png" alt="Discord" /></a>
+    </div>
   </div>
 </header>
 
 <main class="container">
 
   <!-- Post Header -->
-  <section class="blog-header">
+  <section class="blog-header fade-in">
     <h1 class="blog-title">
-      HTTP/3, QUIC, and Control Loops
+      HTTP/3 and QUIC
     </h1>
     <div class="blog-subtitle">
       Posted on January 14, 2026 by Ethan Backhus
@@ -60,7 +66,7 @@
   </section>
 
   <!-- Post Card -->
-  <article class="card blog-post">
+  <article class="card blog-post fade-in">
     <p>
       Transport discussions usually stop at throughput and latency.
       That framing misses where QUIC actually becomes interesting.
@@ -88,5 +94,16 @@
 </footer>
 
 <script src="../../../script.js"></script>
+
+<!-- Loading overlay -->
+<div id="loading" class="loading">
+  <div class="spinner">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="loading-text">Loading...</div>
+  </div>
+</div>
+
 </body>
 </html>
