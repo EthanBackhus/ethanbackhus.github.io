@@ -251,6 +251,34 @@ section {
 	z-index: 1;
 }
 
+.blog-card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+	box-shadow: 0 8px 20px rgba(2, 6, 23, 0.6);
+}
+
+/* Full-card clickable link */
+.blog-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  text-indent: -9999px;
+}
+
+/* Ensure text stays above background visually */
+.blog-card h3,
+.blog-card p,
+.blog-meta {
+  position: relative;
+  z-index: 2;
+}
+
+
 /* Tags styling */
 .project .tags {
 	display: flex;
