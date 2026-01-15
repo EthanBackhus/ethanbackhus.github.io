@@ -315,6 +315,71 @@ section {
   margin: 0;
 }
 
+/* Blog post content */
+.blog-post {
+  margin: 0 auto;
+  padding: 32px;
+  line-height: 1.7;
+}
+
+.blog-post h2 {
+  font-size: 28px;
+  margin: 40px 0 16px;
+  color: #e6eef8;
+}
+
+.blog-post h3 {
+  font-size: 22px;
+  margin: 32px 0 12px;
+  color: #e6eef8;
+}
+
+.blog-post p {
+  margin: 0 0 20px;
+  color: #d1dae6;
+}
+
+.blog-post code {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.blog-post pre {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 24px 0;
+}
+
+.blog-post pre code {
+  background: none;
+  padding: 0;
+}
+
+.blog-post ul,
+.blog-post ol {
+  margin: 16px 0;
+  padding-left: 40px;
+  color: #d1dae6;
+  list-style-position: inside;
+}
+
+.blog-post li {
+  margin-bottom: 8px;
+  padding-left: 80px;
+}
+
+.blog-post img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 24px 0;
+  display: block;
+}
 
 /* Tags styling */
 .project .tags {
