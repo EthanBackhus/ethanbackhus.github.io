@@ -58,7 +58,7 @@
   <!-- Post Header -->
   <section class="blog-header fade-in">
     <h1 class="blog-title">
-      HTTP/3 and QUIC
+      Learning the Full Stack: HTTP/3, QUIC, and Rust Networking
     </h1>
     <div class="blog-subtitle">
       Posted on January 14, 2026 by Ethan Backhus
@@ -68,23 +68,75 @@
   <!-- Post Card -->
   <article class="card blog-post fade-in">
     <p>
-      Transport discussions usually stop at throughput and latency.
-      That framing misses where QUIC actually becomes interesting.
+      In an attempt to become a more well-rounded developer, I've been working to understand all parts of the stack.
+      This has lead me to researching and messing around with networking and infra, and the core protocols that run underneath it.
     </p>
 
     <p>
-      Once congestion control moves into user space, feedback loops
-      stop being incidental and become architectural decisions.
+      To get hands-on experience, I created a Rust networking lab where I implemented a small HTTP/3 server using the quinn library 
+      (a Rust QUIC implementation) and experimented with client-server interactions over QUIC. 
+      This has allowed me to explore real issues like congestion control, stream multiplexing, and packet loss recovery in a 
+      controlled environment.
     </p>
 
-    <h2>Why User-Space Transport Changes Everything</h2>
+    <p>
+      The architecture I'm exploring follows the HTTP/3 -> h3 -> quinn pipeline.
+    </p>
+
+    <p>
+      Quinn handles the low-level QUIC transport over UDP, including encryption, reliable delivery, and stream multiplexing.
+    </p>
+
+    <p>
+      H3 provides the HTTP/3 framing layer, translating requests and responses into QUIC streams.
+    </p>
+
+    <p>
+      HTTP/3 sits on top, giving me the familiar semantics of headers, status codes, and request/response logic.
+    </p>
+
+    <P>
+      Next, I aim to integrate HTTP/3 support into Hyper, Rust’s popular HTTP library. 
+      The goal is to allow Hyper clients and servers to natively speak HTTP/3 while maintaining the same ergonomic
+       API as Hyper over TCP/HTTP/1/2. This is exciting because it bridges real-world application-level HTTP
+        tooling with the cutting-edge transport improvements QUIC offers.
+    </P>
+
+    <p>
+      I’m documenting this journey and sharing code experiments to help others understand how modern 
+      networking stacks work, and to solidify my own knowledge by building and teaching it in public.
+    </p>
+
+    <!-- <p>
+      Thus I've begun exploring the different networking protocols that allow data to be sent over the internet. Currently, the two main
+      networking protocols are TCP and UDP. Both have their advantages and disadvantages, TCP allows for more secure connection but is slower
+      because there is more validation that takes place (synchornize, synchronize-acknowlege, and acknowledge, or SYN, SYN-ACK, ACK). UDP allows
+      for much faster data streams because it's just simply raw data, but isn't as secure and doesn't handle data loss at all. TCP can be
+      useful for most modern web functions, and UDP can be useful where latency and throughput is most important, like playing a video game.
+    </p>
+
+    <p>
+      This is where QUIC comes in, which aims to fix both of these problems. HTTP/3 is the 
+    </p> -->
+
+    <!-- <p>
+      You can think of TCP like two people engaging in a hanshake. One person extends their hand and asks the other if they're ready to talk,
+      the other person shakes their hand and acknowledges they're ready to talk, and the first person shakes their hand back saying they'd like to continue
+      talking.
+    </p> -->
+
+
+    <!-- <h2>Why User-Space Transport Changes Everything</h2>
 
     <p>
       Traditional TCP hides control decisions inside the kernel.
       QUIC exposes them, which changes how systems evolve.
     </p>
 
-    <!-- Long-form content continues -->
+    <img src="./images/http2_vs_quic.png">
+
+    <img src="./images/sol_tx_flow.png"> -->
+
   </article>
 
 </main>
